@@ -1,0 +1,29 @@
+{% load render_bundle from webpack_loader %}
+{% load static from staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>frontend</title>
+  <meta http-equiv=X-UA-Compatible content="IE=edge">
+  <meta name=viewport content="width=device-width,initial-scale=1">
+  <link rel=icon href="{% static 'favicon.ico' %}"> {% render_bundle 'chunk-vendors' %}
+</head>
+
+<body><noscript><strong>We're
+      sorry but frontend doesn't work properly without JavaScript enabled. Please enable it to
+      continue.</strong></noscript>
+
+  {% for i in 'abc' %}
+  <strong>{{ i }} DJANGO PART</strong>
+  {% endfor %}
+
+  <div id=app>
+  </div>
+  {% render_bundle 'app' %}
+
+</body>
+
+</html>
